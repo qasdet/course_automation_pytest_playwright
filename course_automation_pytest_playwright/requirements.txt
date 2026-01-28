@@ -1,0 +1,6 @@
+pytest
+pytest-asyncio
+playwright
+pytest-playwright
+python-dotenv
+requests

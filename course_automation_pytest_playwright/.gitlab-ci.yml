@@ -1,0 +1,35 @@
+stages:
+  - test
+  - e2e
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+unit_tests:
+  stage: test
+  image: python:3.11-slim
+  before_script:
+    - pip install -U pip
+    - pip install -r requirements.txt
+  script:
+    - pytest -q
+
+playwright_e2e:
+  stage: e2e
+  # Используем официальный образ playwright с браузерами
+  image: mcr.microsoft.com/playwright/python:latest
+  services: []
+  before_script:
+    - pip install -r requirements.txt
+    - playwright install --with-deps
+  script:
+    - pytest -q -m e2e
+  artifacts:
+    when: always
+    paths:
+      - test-results/
+    expire_in: 1 day

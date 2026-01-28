@@ -1,0 +1,27 @@
+# Основные зависимости курса
+pytest==7.4.3
+pytest-asyncio==0.21.1
+playwright==1.40.0
+pytest-playwright==0.4.3
+python-dotenv==1.0.0
+requests==2.31.0
+allure-pytest==2.13.2
+
+# Работа с базами данных
+sqlalchemy==2.0.23
+psycopg2-binary==2.9.9
+sqlite3  # встроен в Python
+
+# Дополнительные инструменты
+faker==19.13.0
+pytest-xdist==3.3.1
+pytest-html==4.1.1
+loguru==0.7.2
+
+# Для работы с API
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# Утилиты
+black==23.11.0
+flake8==6.1.0
